@@ -66,19 +66,21 @@ class ClassSettings extends React.Component {
     }
 
     render() {
+        let numArray = [...Array(8).keys()].map(i => i + 1);
+        let currentClasses = this.props.classSettings;
+        if (currentClasses == null) currentClasses = [];
         return (
             <>
             {this.state.loading ? <Loading /> : <></>}
             <Form onSubmit={this.submitClasses}>
                 <Accordion>
-                    <ClassAccordion period="1" />
-                    <ClassAccordion period="2" />
-                    <ClassAccordion period="3" />
-                    <ClassAccordion period="4" />
-                    <ClassAccordion period="5" />
-                    <ClassAccordion period="6" />
-                    <ClassAccordion period="7" />
-                    <ClassAccordion period="8" />
+                    {
+                        numArray.map(i => {
+                            return (
+                                <ClassAccordion period={i} classSettings={currentClasses.filter(item => { return item.period === i })[0]} />
+                            );
+                        })
+                    }
                 </Accordion>
                 <button className="center mt-3" type="submit">Save Classes</button>
             </Form>
