@@ -4,6 +4,7 @@ import {
 	Switch,
 	Route,
 } from "react-router-dom";
+import { ToastContainer, Slide } from 'react-toastify';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Auth0Provider } from "@auth0/auth0-react";
@@ -49,6 +50,21 @@ function App() {
 			</div>
 
   		</Auth0Provider>
+		<ToastContainer
+			position="top-right"
+			autoClose={3000}
+			hideProgressBar
+			newestOnTop={false}
+			closeOnClick
+			rtl={false}
+			pauseOnFocusLoss={false}
+			draggable
+			pauseOnHover={false}
+			transition={Slide}
+			style={{
+				marginTop: "1em"
+			}}
+		/>
 
 		</>
 		);
