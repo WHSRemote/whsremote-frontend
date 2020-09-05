@@ -21,7 +21,6 @@ export default function AllClasses(props) {
     ];
     
     let classCards = [];
-    console.log("Haha : " + JSON.stringify(props.classes));
     Object.entries(props.classes).forEach(([key, value], index) => {
         
         classCards.push(
@@ -31,10 +30,9 @@ export default function AllClasses(props) {
                         <Card.Title>{value.class}</Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">Teacher: {value.teacher}</Card.Subtitle>
                         <Card.Text>
-                            Some quick description
+                            
                         </Card.Text>
-                        <Card.Link href={value.link}>Zoom Link</Card.Link>
-                        <Card.Link href="#">Google Classroom</Card.Link>
+                        <Card.Link href={value.link}>Meeting Link</Card.Link>
                     </Card.Body>
                 </Card>
             </Col>

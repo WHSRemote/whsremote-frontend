@@ -13,7 +13,7 @@ class ScheduleSettings extends React.Component {
                 1: [], // Monday
                 2: [], // Tuesday
                 4: [], // Thursday
-                5: [],  // Friday
+                5: []  // Friday
             }
         }
 

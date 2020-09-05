@@ -7,6 +7,8 @@ import { Loading } from "../loading/Loading";
 import { withAuth0 } from "@auth0/auth0-react";
 import { Row, Col } from "react-bootstrap"; 
 import { APIService } from '../../services/APIService';
+import { ScheduleService } from "../../services/ScheduleService";
+
 
 class HomePage extends React.Component {
     constructor(props) {
@@ -17,6 +19,8 @@ class HomePage extends React.Component {
             loading: false,
             classes: {},
             schedule: [],
+            scheduleUpdate: {},
+            currentClass: {},
         };     
     }
 
@@ -32,20 +36,43 @@ class HomePage extends React.Component {
                 _this.setState({
                     classes: classes   
                 });
-                _this.setState({loading: false});
 
-                _this.setCurrentClass();
+                APIService.getSchedule(token, user_id, (schedule => {
+                    _this.setState({
+                        schedule: schedule   
+                    });
+
+                    APIService.getScheduleUpdate(token, (scheduleUpdate => {
+                        _this.setState({
+                            scheduleUpdate: scheduleUpdate
+                        });
+
+                        _this.setState({loading: false});
+
+                        _this.setCurrentClass();
+                        setInterval(_this.setCurrentClass.bind(_this), 5000);
+                    }));
+                }));
             }));
         })();
     }
 
     setCurrentClass() {
         // Set current class in the card based off what time it is
+        let currentClass = ScheduleService.getCurrentPeriod(this.state.schedule, this.state.scheduleUpdate);
+        if (typeof currentClass === "string") {
+            // a class id
+            this.setState({
+                currentClass: this.state.classes[currentClass]
+            })
+        } else if (typeof currentClass === "number") {
+            this.setState({
+                currentClass: currentClass
+            });
+        }
     }
 
     render() {
-        console.log("Classes: " + JSON.stringify(this.state.classes));
-
         return ( 
             <>
                 {this.state.loading ? <Loading /> : <></>}
@@ -62,7 +89,7 @@ class HomePage extends React.Component {
                     <div className="col flex-col">
                         {Object.keys(this.state.classes).length > 0 ?
                             <>
-                                <CurrentClass class={this.state.classes.iyg2lmhty}/>
+                                <CurrentClass class={this.state.currentClass}/>
                                 <hr/>
                                 <Row>
                                     <AllClasses classes={this.state.classes}/>

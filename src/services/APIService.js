@@ -60,12 +60,12 @@ class APIService {
                 },
             }).then(response => {
                 if(response.ok) {
-                    // Expects [] for no new schedule, [{...}] with new schedule
+                    // Expects {} for no new schedule, {day: 2} with new schedule
                     response.json().then(json => {
                         callback(json);
                     });    
                 } else {
-                    toast.error("Something went wrong when retrieving class data.");
+                    toast.error("Something went wrong when retrieving scheduling update.");
                 }
             });
         })();

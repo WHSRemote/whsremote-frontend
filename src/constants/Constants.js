@@ -6,7 +6,8 @@ export default class Constants {
      * -4: Extended Advisory (Wed Only)
      */
     
-    static TIME_FORMAT = "HH:mm"
+    static TIME_FORMAT = "HH:mm";
+    static DATE_FORMAT = "MM-DD-YYYY";
 
     static SUNDAY = 0;
     static MONDAY = 1;
@@ -25,29 +26,17 @@ export default class Constants {
     static PERIOD_EXTADVISORY = -4;
     static OUT_OF_SCHOOL = -100;
 
-    static SCHEDULE_MON_THURS = {
+    static SCHEDULE_NORMAL = {
         "08:35-08:40": this.PERIOD_ADVISORY,
-        "08:45-10:05": 1,
+        "08:45-10:05": 0, // index of class in schedule array; first class
         "10:05-10:20": this.PERIOD_SCREENBREAK,
-        "10:20-11:40": 3,
+        "10:20-11:40": 1, // second class, etc
         "11:40-12:10": this.PERIOD_LUNCH,
-        "12:10-13:30": 5,
+        "12:10-13:30": 2,
         "13:30-13:45": this.PERIOD_SCREENBREAK,
-        "13:45-15:05": 7
+        "13:45-15:05": 3
     };
 
-    static SCHEDULE_TUES_FRI = {
-        "08:35-08:40": this.PERIOD_ADVISORY,
-        "08:45-10:05": 2,
-        "10:05-10:20": this.PERIOD_SCREENBREAK,
-        "10:20-11:40": 4,
-        "11:40-12:10": this.PERIOD_LUNCH,
-        "12:10-13:30": 6,
-        "13:30-13:45": this.PERIOD_SCREENBREAK,
-        "13:45-15:05": 8
-    };
-
-    static SCHEDULE_WED = {
-        "10:00:10:25": this.PERIOD_EXTADVISORY
-    }
+    static ADVISORY_WED_START = "10:00";
+    static ADVISORY_WED_END = "10:25";
 }
