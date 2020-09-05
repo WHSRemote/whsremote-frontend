@@ -54,7 +54,7 @@ class APIService {
 
     static getScheduleUpdate(token, callback) {
         (async () => {
-            fetch(API_URL + "/schedule", {
+            fetch(API_URL + "/schedule/update", {
                 headers: {
                   Authorization: `Bearer ${token}`,
                 },
@@ -70,6 +70,44 @@ class APIService {
             });
         })();
     }
+
+    static getSchedule(token, user_id, callback) {
+        (async () => {
+            fetch(API_URL + "/schedule?id=" + encodeURI(user_id), {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+            }).then(response => {
+                if(response.ok) {
+                    response.json().then(json => {
+                        callback(json);
+                    });    
+                } else {
+                    toast.error("Something went wrong when retrieving schedule data.");
+                }
+            });
+        })();
+    }
+
+    static postSchedule(token, data, callback) {
+        (async () => {
+            fetch(API_URL + "/schedule", {
+                method: 'post',
+                body: JSON.stringify(data),
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                }
+            }).then(function(response) {
+                if(response.ok) {
+                    toast.success("Schedule saved!");
+                    callback();
+                } else {
+                    toast.error("Something went wrong when saving schedule data.");
+                }
+            });
+        })();
+    }    
 }
 
 export { APIService };

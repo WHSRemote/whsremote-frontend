@@ -9,14 +9,14 @@ export default function ClassConfig(props) {
                 <Form.Group as={Col} xs={12} sm={1}>
                     <Form.Label>Period</Form.Label>
                     <Form.Control as="select" defaultValue={props.classSettings != null ? props.classSettings.period : 1} onChange={(event) => { props.changeClassData(props.id, "period", event.target.value) }}>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
+                        <option value={1}>1</option>
+                        <option value={2}>2</option>
+                        <option value={3}>3</option>
+                        <option value={4}>4</option>
+                        <option value={5}>5</option>
+                        <option value={6}>6</option>
+                        <option value={7}>7</option>
+                        <option value={8}>8</option>
                     </Form.Control>
                 </Form.Group>
 

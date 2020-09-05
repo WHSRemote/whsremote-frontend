@@ -4,6 +4,7 @@ import Navbar  from "../navbar/Navbar";
 import { Loading } from "../loading/Loading";
 import { Accordion, Card, Form, Col } from "react-bootstrap";
 import ClassSettings from "./classes/ClassSettings";
+import ScheduleSettings from "./schedule/ScheduleSettings";
 import { withAuth0 } from "@auth0/auth0-react";
 import { APIService } from '../../services/APIService';
 
@@ -14,7 +15,8 @@ class SettingsPage extends React.Component {
         this.state = {
             currentPage: "settings",
             loading: false,
-            currentClasses: null
+            currentClasses: null,
+            currentSchedule: null
         };     
     }
 
@@ -30,13 +32,20 @@ class SettingsPage extends React.Component {
                 _this.setState({
                     currentClasses: classes   
                 });
-                _this.setState({loading: false});
+
+                APIService.getSchedule(token, user_id, (schedule => {
+                    _this.setState({
+                        currentSchedule: schedule   
+                    });
+                    _this.setState({loading: false});
+                }));
+                
             }));
         })();
     }
 
     render() {
-        if(this.state.currentClasses === null) return <Loading />;
+        if(this.state.currentClasses === null || this.state.currentSchedule === null) return <Loading />;
 
         return (
             <>
@@ -51,7 +60,7 @@ class SettingsPage extends React.Component {
                     </fieldset>
                     <fieldset>
                         <legend>Schedule</legend>
-                        {/* <ScheduleSettings scheduleSettings={this.state.currentSchedule} /> */}
+                        <ScheduleSettings classes={this.state.currentClasses} scheduleSettings={this.state.currentSchedule} />
                     </fieldset>
                 </main>  
                 <Navbar currentPage={this.state.currentPage} />

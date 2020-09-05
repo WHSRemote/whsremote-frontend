@@ -36,7 +36,7 @@ class ClassSettings extends React.Component {
         // Clear out the elements where the class name is blank
         let classListCopy = this.state.classList;
         for (let [id, classObj] of Object.entries(this.state.classList)) {
-            if (classObj.class == null) {
+            if (classObj.class === "") {
                 delete classListCopy[id];
             } 
         }
@@ -76,7 +76,8 @@ class ClassSettings extends React.Component {
 
     changeClassData(id, key, value){
         let currentClassList = this.state.classList;
-        currentClassList[id][key] = value;
+        currentClassList[id][key] = (key === "period") ? Number(value) : value;
+        
         this.setState({
             classList: currentClassList
         });
@@ -92,7 +93,6 @@ class ClassSettings extends React.Component {
         }
         return (
             <>
-            {this.state.loading ? <Loading /> : <></>}
             <Form onSubmit={this.submitClasses}>
                 {
                     classConfigDOM
