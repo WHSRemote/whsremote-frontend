@@ -15,7 +15,7 @@ class HomePage extends React.Component {
         this.state = {
             currentPage: "home",
             loading: false,
-            classes: [],
+            classes: {},
             schedule: [],
         };     
     }
@@ -44,6 +44,8 @@ class HomePage extends React.Component {
     }
 
     render() {
+        console.log("Classes: " + JSON.stringify(this.state.classes));
+
         return ( 
             <>
                 {this.state.loading ? <Loading /> : <></>}
@@ -58,9 +60,9 @@ class HomePage extends React.Component {
                     </div>
                     
                     <div className="col flex-col">
-                        {this.state.classes.length > 0 ?
+                        {Object.keys(this.state.classes).length > 0 ?
                             <>
-                                <CurrentClass class={this.state.classes[0]}/>
+                                <CurrentClass class={this.state.classes.iyg2lmhty}/>
                                 <hr/>
                                 <Row>
                                     <AllClasses classes={this.state.classes}/>

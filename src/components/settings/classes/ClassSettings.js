@@ -10,7 +10,7 @@ class ClassSettings extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            classList: []
+            classList: {}
         }
 
         this.submitClasses = this.submitClasses.bind(this);
@@ -20,7 +20,7 @@ class ClassSettings extends React.Component {
 
     componentDidMount() {
         console.log("Settings: " + JSON.stringify(this.props.classSettings))
-        if(this.props.classSettings != null && this.props.classSettings.length > 0) {
+        if(this.props.classSettings != null && Object.keys(this.props.classSettings).length > 0) {
             this.setState({
                 classList: this.props.classSettings
             })
@@ -34,7 +34,12 @@ class ClassSettings extends React.Component {
         }
 
         // Clear out the elements where the class name is blank
-        let classListCopy = this.state.classList.filter((item) => item.class !== "");
+        let classListCopy = this.state.classList;
+        for (let [id, classObj] of Object.entries(this.state.classList)) {
+            if (classObj.class == null) {
+                delete classListCopy[id];
+            } 
+        }
         
         let user_id = this.props.auth0.user.sub;
 
@@ -57,42 +62,50 @@ class ClassSettings extends React.Component {
     }
 
     appendClass() {
+        let modifiedList = this.state.classList;
+        modifiedList[this.getUnique()] = {
+            period: 1,
+            class: "",
+            teacher: "",
+            link: ""
+        };
         this.setState({
-            classList: [...this.state.classList, {
-                period: 1,
-                class: "",
-                teacher: "",
-                link: ""
-            }]
+            classList: modifiedList
         })
     }
 
-    changeClassData(i, key, value){
+    changeClassData(id, key, value){
         let currentClassList = this.state.classList;
-        currentClassList[i][key] = value;
+        currentClassList[id][key] = value;
         this.setState({
             classList: currentClassList
         });
-        // console.log(JSON.stringify(this.state.classList));
+        console.log(JSON.stringify(this.state.classList));
     }
 
     render() {
+        let classConfigDOM = [];
+        for (let [id, classObj] of Object.entries(this.state.classList)) {
+            classConfigDOM.push(
+                <ClassConfig id={id} classSettings={classObj} changeClassData={this.changeClassData}/>
+            );
+        }
         return (
             <>
             {this.state.loading ? <Loading /> : <></>}
             <Form onSubmit={this.submitClasses}>
                 {
-                    this.state.classList.map((classObj, i) => {
-                        return (
-                            <ClassConfig index={i} classSettings={classObj} changeClassData={this.changeClassData}/>
-                        );
-                    })
+                    classConfigDOM
                 }
                 <button className="add-classes" type="button" onClick={this.appendClass}>+ Add Classes</button>
                 <button className="center mt-3" type="submit">Save Classes</button>
             </Form>
             </>
         );
+    }
+
+    getUnique() {
+        return Math.random().toString(36).substr(2, 9);
     }
 }
 

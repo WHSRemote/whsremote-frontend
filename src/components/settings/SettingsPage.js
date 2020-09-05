@@ -14,7 +14,7 @@ class SettingsPage extends React.Component {
         this.state = {
             currentPage: "settings",
             loading: false,
-            currentClasses: []
+            currentClasses: null
         };     
     }
 
@@ -36,7 +36,7 @@ class SettingsPage extends React.Component {
     }
 
     render() {
-        if(this.state.currentClasses.length === 0) return <Loading />;
+        if(this.state.currentClasses === null) return <Loading />;
 
         return (
             <>
@@ -48,6 +48,10 @@ class SettingsPage extends React.Component {
                         <legend>Classes</legend>
                         {/* <small className="text-muted">It is highly advisable you complete all the fields all at once. As of now, fields will not save after you refresh.</small> */}
                         <ClassSettings classSettings={this.state.currentClasses} />
+                    </fieldset>
+                    <fieldset>
+                        <legend>Schedule</legend>
+                        {/* <ScheduleSettings scheduleSettings={this.state.currentSchedule} /> */}
                     </fieldset>
                 </main>  
                 <Navbar currentPage={this.state.currentPage} />
