@@ -1,7 +1,7 @@
 import React from "react";
 import { Accordion, Form } from "react-bootstrap";
 import { withAuth0 } from "@auth0/auth0-react";
-import ClassAccordion from "./ClassAccordion";
+import ClassConfig from "./ClassConfig";
 import { APIService } from "../../../services/APIService";
 import { Loading } from "../../loading/Loading";
 
@@ -9,47 +9,38 @@ class ClassSettings extends React.Component {
 
     constructor(props) {
         super(props);
-
         this.state = {
-            period1: "",
-            period2: "",
-            period3: "",
-            period4: "",
-            period5: "",
-            period6: "",
-            period7: "",
-            period8: "",
+            classList: []
         }
 
         this.submitClasses = this.submitClasses.bind(this);
+        this.appendClass = this.appendClass.bind(this);
+        this.changeClassData = this.changeClassData.bind(this);
+    }
+
+    componentDidMount() {
+        console.log("Settings: " + JSON.stringify(this.props.classSettings))
+        if(this.props.classSettings != null && this.props.classSettings.length > 0) {
+            this.setState({
+                classList: this.props.classSettings
+            })
+        }
     }
 
     submitClasses(event) {
+        event.preventDefault();
         if(!window.confirm('Are you sure your class information is correct before submitting?')) {
             return;
         }
-        event.preventDefault();
 
-        let form = event.target;
-
-        let classesObj = [];
-        for(let i = 1; i < 9; i++) {
-            let class_name = form.elements["period" + i + "-class"].value;
-            if(class_name.length === 0) continue;
-
-            classesObj.push({
-                period: i,
-                class: form.elements["period" + i + "-class"].value,
-                teacher: form.elements["period" + i + "-teacher"].value,
-                link: form.elements["period" + i + "-link"].value
-            });
-        }
+        // Clear out the elements where the class name is blank
+        let classListCopy = this.state.classList.filter((item) => item.class !== "");
         
         let user_id = this.props.auth0.user.sub;
 
         let classData = {
             userId: user_id,
-            json: JSON.stringify(classesObj)
+            json: JSON.stringify(classListCopy)
         };
         console.log(classData);
         // console.log(form.elements["period" + "1" + "-class"].value);
@@ -65,23 +56,39 @@ class ClassSettings extends React.Component {
         })();
     }
 
+    appendClass() {
+        this.setState({
+            classList: [...this.state.classList, {
+                period: 1,
+                class: "",
+                teacher: "",
+                link: ""
+            }]
+        })
+    }
+
+    changeClassData(i, key, value){
+        let currentClassList = this.state.classList;
+        currentClassList[i][key] = value;
+        this.setState({
+            classList: currentClassList
+        });
+        // console.log(JSON.stringify(this.state.classList));
+    }
+
     render() {
-        let numArray = [...Array(8).keys()].map(i => i + 1);
-        let currentClasses = this.props.classSettings;
-        if (currentClasses == null) currentClasses = [];
         return (
             <>
             {this.state.loading ? <Loading /> : <></>}
             <Form onSubmit={this.submitClasses}>
-                <Accordion>
-                    {
-                        numArray.map(i => {
-                            return (
-                                <ClassAccordion period={i} classSettings={currentClasses.filter(item => { return item.period === i })[0]} />
-                            );
-                        })
-                    }
-                </Accordion>
+                {
+                    this.state.classList.map((classObj, i) => {
+                        return (
+                            <ClassConfig index={i} classSettings={classObj} changeClassData={this.changeClassData}/>
+                        );
+                    })
+                }
+                <button className="add-classes" type="button" onClick={this.appendClass}>+ Add Classes</button>
                 <button className="center mt-3" type="submit">Save Classes</button>
             </Form>
             </>

@@ -222,32 +222,12 @@ main {
   }
 
 /* Settings */
-  ul.settings-list {
-      list-style: none;
-  }
-
-  li.settings-list-item {
-      padding: 1em 0.5em 1em 1.5em;
-      font-size: 1.2em;
-      border: 1px solid #ccc;
-      border-bottom: 0;
-      background-color: #fcfcfc;
-      display: flex;
-      cursor: pointer;
-  }
-
-  li.settings-list-item:last-child{
-      border-bottom: 1px solid #ccc;
-  }
-
-  li.settings-list-item span {
-      flex: 1;
-  }
-  li.settings-list-item::after{
-      /* font-family: "Font Awesome 5 Light";
-      content: "\f054";
-      position: absolute;
-      right: 0.5em; */
+  button.add-classes {
+    background-color: white;
+    color: black;
+    border: 1px dashed #ccc;
+    padding: 1em 5em;
+    width: 100%;
   }
   
   /* Setup Periods */

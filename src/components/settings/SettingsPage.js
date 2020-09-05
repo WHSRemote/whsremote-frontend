@@ -36,9 +36,11 @@ class SettingsPage extends React.Component {
     }
 
     render() {
+        if(this.state.currentClasses.length === 0) return <Loading />;
+
         return (
             <>
-                {this.state.loading ? <Loading /> : <></>}
+                {(this.state.loading) ? <Loading /> : <></>}
                 <main>
                     <h2>Settings</h2>
                     <br />

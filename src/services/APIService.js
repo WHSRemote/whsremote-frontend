@@ -52,8 +52,23 @@ class APIService {
         })();
     }
 
-    static getSchedule(token, user_id, callback) {
-
+    static getScheduleUpdate(token, callback) {
+        (async () => {
+            fetch(API_URL + "/schedule", {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+            }).then(response => {
+                if(response.ok) {
+                    // Expects [] for no new schedule, [{...}] with new schedule
+                    response.json().then(json => {
+                        callback(json);
+                    });    
+                } else {
+                    toast.error("Something went wrong when retrieving class data.");
+                }
+            });
+        })();
     }
 }
 
