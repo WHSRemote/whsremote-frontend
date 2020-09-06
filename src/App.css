@@ -204,6 +204,12 @@ main {
       
   }
 
+/* QuickLinks Page */
+.quick-link:hover {
+  cursor: pointer;
+  background-color: #eee;
+}
+
 /* Home Page */
 
 /* Schedule Page */
@@ -233,7 +239,7 @@ table.schedule-table td {
   .section-to-print {
     position: absolute;
     left: 0;
-    top: 30%;
+    top: 20%;
   }
 }
 
