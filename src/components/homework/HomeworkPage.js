@@ -14,6 +14,15 @@ export default class HomeworkPage extends React.Component {
     render() {
         return (
             <>
+                <main>
+                    <h1>Coming soon!</h1>
+                </main>
+
+                <Navbar currentPage={this.state.currentPage} />
+            </>
+        )
+        return (
+            <>
                 <section>
                     <fieldset>
                         <legend>Homework Logger</legend>
