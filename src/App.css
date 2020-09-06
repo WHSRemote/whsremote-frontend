@@ -205,21 +205,37 @@ main {
   }
 
 /* Home Page */
-  .container-class-details, .container-period-details{
-      margin-left: 1em;
+
+/* Schedule Page */
+table.schedule-table {
+  border: 5px #dee2e6 solid !important;
+}
+
+table.schedule-table td {
+  vertical-align: middle;
+}
+
+@page {
+  size: letter landscape !important;
+}
+
+@media print {
+  @page {
+    size: letter landscape !important;
   }
 
-  .container-class-details .class {
-      
+  body * {
+    visibility: hidden;
   }
-
-  .container-class-details .classroom {
-
+  .section-to-print, .section-to-print * {
+    visibility: visible;
   }
-
-  .container-class-details .classtime {
-
+  .section-to-print {
+    position: absolute;
+    left: 0;
+    top: 30%;
   }
+}
 
 /* Settings */
   button.add-classes {

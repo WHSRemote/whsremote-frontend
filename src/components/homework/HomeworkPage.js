@@ -2,7 +2,7 @@ import React from "react";
 
 import Navbar  from "../navbar/Navbar";
 
-export class HomeworkPage extends React.Component {
+export default class HomeworkPage extends React.Component {
     constructor(props) {
         super(props);
 
