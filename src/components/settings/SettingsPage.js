@@ -62,6 +62,14 @@ class SettingsPage extends React.Component {
                         <legend>Schedule</legend>
                         <ScheduleSettings classes={this.state.currentClasses} scheduleSettings={this.state.currentSchedule} />
                     </fieldset>
+                    <br />
+                    <fieldset>
+                        <legend>About / Feedback</legend>
+                        <button className="btn-info" onClick={() => {window.open("https://forms.gle/ywYxtt37L3dMAKoq8", '_blank')}}>Feedback / Bug Report Form</button>
+                        <br />
+                        <br />
+                        <span>Made with ☕ by Mingle Li, Class of 2021</span>
+                    </fieldset>
                 </main>  
                 <Navbar currentPage={this.state.currentPage} />
             </>
