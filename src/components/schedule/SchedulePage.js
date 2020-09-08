@@ -74,7 +74,7 @@ class SchedulePage extends React.Component {
                 <main>
                     <Row>
                         <Col>
-                            <Button variant="outline-dark" size="sm" className="mt-1 mb-1" sonClick={() => {window.print()}}>🖨️ Print</Button>
+                            <Button variant="outline-dark" size="sm" className="mt-1 mb-1" onClick={() => {window.print()}}>🖨️ Print</Button>
                         </Col>
                     </Row>
                     <Table responsive bordered className="text-center schedule-table table-sm section-to-print">
@@ -91,7 +91,7 @@ class SchedulePage extends React.Component {
                         <tbody>
                             <tr>
                                 <td>8:35-8:40</td>
-                                <td colspan="4"><small>Advisory</small></td>
+                                <td colSpan="4"><small>Advisory</small></td>
                             </tr>
                             <tr>
                                 <td>8:45-10:05</td>
@@ -102,7 +102,7 @@ class SchedulePage extends React.Component {
                             </tr>
                             <tr>
                                 <td>10:05-10:20</td>
-                                <td colspan="4"><small>Screen Break</small></td>
+                                <td colSpan="4"><small>Screen Break</small></td>
                             </tr>
                             <tr>
                                 <td>10:20-11:40</td>
@@ -113,7 +113,7 @@ class SchedulePage extends React.Component {
                             </tr>
                             <tr>
                                 <td>11:40-12:10</td>
-                                <td colspan="4"><small>Lunch</small></td>
+                                <td colSpan="4"><small>Lunch</small></td>
                             </tr>
                             <tr>
                                 <td>12:10-1:30</td>
@@ -124,7 +124,7 @@ class SchedulePage extends React.Component {
                             </tr>
                             <tr>
                                 <td>1:30-1:45</td>
-                                <td colspan="4"><small>Screen Break</small></td>
+                                <td colSpan="4"><small>Screen Break</small></td>
                             </tr>
                             <tr>
                                 <td>1:45-3:05</td>
