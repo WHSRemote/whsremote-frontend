@@ -52,6 +52,7 @@ class SettingsPage extends React.Component {
                 {(this.state.loading) ? <Loading /> : <></>}
                 <main>
                     <h2>Settings</h2>
+                    <a href="https://www.youtube.com/watch?v=SPeMsF_0WPY&list=PL5Y2tGfke7b720jp0GcGiOTQhT_SCItpA&index=3" target="_blank">Need help?</a>
                     <br />
                     <fieldset>
                         <legend>Classes</legend>
