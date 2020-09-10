@@ -18,7 +18,7 @@ export class ScheduleService {
 
         // if now is out of school hours, or if it's Sunday or Saturday
         if(!moment().isBetween(startTime, endTime) || day === C.SUNDAY || day === C.SATURDAY) {
-            return C.OUT_OF_SCHOOL;
+            return [C.OUT_OF_SCHOOL];
         }
 
         let classes = schedule[day]; // format of [id1, id2, id3, id4]
@@ -45,12 +45,12 @@ export class ScheduleService {
             let extAdvStart = moment(C.ADVISORY_WED_START, C.TIME_FORMAT);
             let extAdvEnd = moment(C.ADVISORY_WED_END, C.TIME_FORMAT);
             if(moment().isBetween(extAdvStart, extAdvEnd)) {
-                return C.PERIOD_EXTADVISORY;
+                return [C.PERIOD_EXTADVISORY, extAdvStart, extAdvEnd];
             }
         }
 
         // if it's not a special day, and if it's not advisory, then it's out of school
-        if (classes === null) return C.OUT_OF_SCHOOL;
+        if (classes === null) return [C.OUT_OF_SCHOOL];
 
         // if we're here, then it's either a normal day or a modified Wednesday following a normal day
         for (let [timerange, value] of Object.entries(C.SCHEDULE_NORMAL)) {
@@ -67,7 +67,7 @@ export class ScheduleService {
             }
         }
 
-        return C.OUT_OF_SCHOOL;
+        return [C.OUT_OF_SCHOOL];
 
 
         // //
