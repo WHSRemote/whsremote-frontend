@@ -43,7 +43,7 @@ class LoginPage extends React.Component {
                         <button style={loginBtnStyle} onClick={() => {this.redirectAuth()}}>Login</button>
                     </div>
                     <br/>
-                    <div className="flex flex-center">
+                    <div className="flex flex-center text-center">
                         <a href="https://tinyurl.com/donatewhsremote" target="_blank">If you like this, help support me and cover costs here!</a>
                     </div>
                 </div>

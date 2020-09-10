@@ -7,6 +7,7 @@ export default class Constants {
      */
     
     static TIME_FORMAT = "HH:mm";
+    static WEIRD_PERSON_TIME_FORMAT = "h:mm";
     static DATE_FORMAT = "MM-DD-YYYY";
 
     static SUNDAY = 0;

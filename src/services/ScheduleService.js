@@ -9,7 +9,7 @@ export class ScheduleService {
      * @param scheduleUpdate 
      */
     static getCurrentPeriod(schedule, scheduleUpdate) {
-        return C.OUT_OF_SCHOOL;
+        // return C.OUT_OF_SCHOOL;
 
         let startTime = moment(C.SCHOOL_START_TIME, C.TIME_FORMAT);
         let endTime = moment(C.SCHOOL_END_TIME, C.TIME_FORMAT);
@@ -59,10 +59,10 @@ export class ScheduleService {
             if(moment().isBetween(periodStart, periodEnd)) {
                 if(value >= 0) {
                     // real class, return classId
-                    return classes[value];
+                    return [classes[value], periodStart, periodEnd];
                 } else {
                     // off-class, return the number representation of the class
-                    return value;
+                    return [value, periodStart, periodEnd];
                 }
             }
         }

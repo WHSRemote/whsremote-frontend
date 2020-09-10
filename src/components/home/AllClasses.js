@@ -25,7 +25,7 @@ export default function AllClasses(props) {
         
         classCards.push(
             <Col xs={12} sm={6} md={3} className="mt-2 mb-2">
-                <Card border={colors[index]} classId={key}>
+                <Card border={colors[index]} classID={key}>
                     <Card.Body>
                         <Card.Title>{value.class}</Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">Teacher: {value.teacher}</Card.Subtitle>

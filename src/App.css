@@ -211,6 +211,22 @@ main {
 }
 
 /* Home Page */
+.progress {
+  height: 2em !important;
+  position: relative;
+}
+
+.start-time {
+  position: absolute;
+  left: 1em;
+  font-weight: bold;
+}
+
+.end-time {
+  position: absolute;
+  right: 1em;
+  font-weight: bold;
+}
 
 /* Schedule Page */
 table.schedule-table {

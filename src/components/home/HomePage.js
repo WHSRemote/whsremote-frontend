@@ -1,5 +1,4 @@
 import React from "react";
-
 import Navbar  from "../navbar/Navbar";
 import CurrentClass from "./CurrentClass";
 import AllClasses from "./AllClasses";
@@ -21,6 +20,7 @@ class HomePage extends React.Component {
             schedule: [],
             scheduleUpdate: {},
             currentClass: {},
+            periodDuration: {}
         };     
     }
 
@@ -59,15 +59,24 @@ class HomePage extends React.Component {
 
     setCurrentClass() {
         // Set current class in the card based off what time it is
-        let currentClass = ScheduleService.getCurrentPeriod(this.state.schedule, this.state.scheduleUpdate);
+        let [currentClass, periodStart, periodEnd] = ScheduleService.getCurrentPeriod(this.state.schedule, this.state.scheduleUpdate);
+        
         if (typeof currentClass === "string") {
             // a class id
             this.setState({
-                currentClass: this.state.classes[currentClass]
+                currentClass: this.state.classes[currentClass],
+                periodDuration: {
+                    start: periodStart,
+                    end: periodEnd
+                }
             })
         } else if (typeof currentClass === "number") {
             this.setState({
-                currentClass: currentClass
+                currentClass: currentClass,
+                periodDuration: {
+                    start: periodStart,
+                    end: periodEnd
+                }
             });
         }
     }
@@ -89,7 +98,7 @@ class HomePage extends React.Component {
                     <div className="col flex-col">
                         {Object.keys(this.state.classes).length > 0 ?
                             <>
-                                <CurrentClass class={this.state.currentClass}/>
+                                <CurrentClass class={this.state.currentClass} periodDuration={this.state.periodDuration}/>
                                 <hr/>
                                 <Row>
                                     <AllClasses classes={this.state.classes}/>
