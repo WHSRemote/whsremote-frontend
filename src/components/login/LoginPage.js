@@ -44,7 +44,7 @@ class LoginPage extends React.Component {
                     </div>
                     <br/>
                     <div className="flex flex-center text-center">
-                        <a href="https://tinyurl.com/donatewhsremote" target="_blank">If you like this, help support me and cover costs here!</a>
+                        <a href="https://donorbox.org/whsremote-donation" target="_blank">If you like this, help support me and cover costs here!</a>
                     </div>
                 </div>
                 
