@@ -56,11 +56,13 @@ class SettingsPage extends React.Component {
                     <br />
                     <fieldset>
                         <legend>Classes</legend>
+                        <p>Advisory support now added! Add a class and set its period to "Advisory".</p>
                         {/* <small className="text-muted">It is highly advisable you complete all the fields all at once. As of now, fields will not save after you refresh.</small> */}
                         <ClassSettings classSettings={this.state.currentClasses} />
                     </fieldset>
                     <fieldset>
                         <legend>Schedule</legend>
+                        <a href="https://www.youtube.com/watch?v=SPeMsF_0WPY&list=PL5Y2tGfke7b720jp0GcGiOTQhT_SCItpA&index=3" target="_blank">Look at this video to make sure your schedule is configured correctly!</a>
                         <ScheduleSettings classes={this.state.currentClasses} scheduleSettings={this.state.currentSchedule} />
                     </fieldset>
                     <br />
