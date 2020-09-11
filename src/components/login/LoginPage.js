@@ -18,10 +18,11 @@ class LoginPage extends React.Component {
         let loginBtnStyle = {
             fontSize: "150%",
             height: "100px",
-            width: "100px",
+            // width: "100px",
+            width: "300px",
             textAlign: "center",
             padding: "0",
-            borderRadius: "20em",
+            // borderRadius: "20em",
             backgroundColor: "#FF9700"
         };
 
@@ -39,13 +40,25 @@ class LoginPage extends React.Component {
                         </div>
                     </div>
                     <br/>
-                    <div className="flex flex-center">
-                        <button style={loginBtnStyle} onClick={() => {this.redirectAuth()}}>Login</button>
-                    </div>
-                    <br/>
+                    
+                    <Row>
+                        <Col className="flex flex-col">
+                            <div className="flex flex-center">
+                                <button style={loginBtnStyle} onClick={() => {this.redirectAuth()}}>Login</button>
+                            </div>
+                        </Col>
+                        <Col className="text-left flex flex-col">
+                            <h3><b>IMPORTANT UPDATES:</b></h3>
+                            <ul>
+                                <li>PLEASE CLICK "Need Help?" ON SETTINGS TO VERIFY THAT YOU FILLED IN YOUR SCHEDULE CORRECTLY</li>
+                                <li>Advisory support is being implemented!</li>
+                            </ul>
+                        </Col>
+                    </Row>
                     <div className="flex flex-center text-center">
-                        <a href="https://donorbox.org/whsremote-donation" target="_blank">If you like this, help support me and cover costs here!</a>
+                        <a className="w-100" href="https://donorbox.org/whsremote-donation" target="_blank">If you like this, help support me and cover costs here!</a>
                     </div>
+                    
                 </div>
                 
             </section>
