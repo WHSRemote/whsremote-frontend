@@ -14,12 +14,26 @@ export default function CurrentClass(props) {
     let content = null;
     switch (props.class) {
         case C.PERIOD_ADVISORY:
+        case C.PERIOD_EXTADVISORY:
             content = (
                 <>
-                <Card.Header as="h3">Advisory</Card.Header>
+                <Card.Header as="h3" className="flex align-items-center">
+                    <div className="flex-1">
+                        Advisory
+                    </div>
+                    <div>
+                        <Button variant="success" className="h5 m-0" size="lg" href={props.class.link}>Join Meeting</Button>
+                    </div>
+                </Card.Header>
                 <Card.Body>
                     <Card.Text>
-                    Teacher: {props.class.teacher}
+                    {
+                        props.class.teacher != null ? (
+                            <>Teacher: {props.class.teacher}</>
+                        ) : (
+                            <><p>Add your Advisory class in Settings -> Classes and choose Advisory as the period!</p></>
+                        )
+                    }   
                     </Card.Text>
                 </Card.Body>
                 </>
@@ -38,19 +52,6 @@ export default function CurrentClass(props) {
             content = (
                 <>
                 <Card.Header as="h1" className="text-center">🧁 Lunch Time! 🧁</Card.Header>
-                </>
-            );
-            break;
-
-        case C.PERIOD_EXTADVISORY:
-            content = (
-                <>
-                <Card.Header as="h3">Extended Advisory</Card.Header>
-                <Card.Body>
-                    <Card.Text>
-                    Teacher: {props.class.teacher}
-                    </Card.Text>
-                </Card.Body>
                 </>
             );
             break;

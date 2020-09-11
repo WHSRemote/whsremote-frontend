@@ -9,7 +9,7 @@ export class ScheduleService {
      * @param scheduleUpdate 
      */
     static getCurrentPeriod(schedule, scheduleUpdate) {
-        // return C.OUT_OF_SCHOOL;
+        // return [C.PERIOD_ADVISORY, moment(C.ADVISORY_WED_START, C.TIME_FORMAT), moment(C.ADVISORY_WED_END, C.TIME_FORMAT)];
 
         let startTime = moment(C.SCHOOL_START_TIME, C.TIME_FORMAT);
         let endTime = moment(C.SCHOOL_END_TIME, C.TIME_FORMAT);

@@ -7,6 +7,7 @@ import { withAuth0 } from "@auth0/auth0-react";
 import { Row, Col } from "react-bootstrap"; 
 import { APIService } from '../../services/APIService';
 import { ScheduleService } from "../../services/ScheduleService";
+import C from "../../constants/Constants";
 
 
 class HomePage extends React.Component {
@@ -71,6 +72,13 @@ class HomePage extends React.Component {
                 }
             })
         } else if (typeof currentClass === "number") {
+            if (currentClass == C.PERIOD_ADVISORY || currentClass == C.PERIOD_EXTADVISORY) {
+                for (let [key, value] of Object.entries(this.state.classes)) {
+                    if (value.period == -1) {
+                        currentClass = value;
+                    }
+                }
+            }
             this.setState({
                 currentClass: currentClass,
                 periodDuration: {
