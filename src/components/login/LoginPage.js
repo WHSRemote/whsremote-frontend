@@ -51,7 +51,7 @@ class LoginPage extends React.Component {
                             <h3><b>IMPORTANT UPDATES:</b></h3>
                             <ul>
                                 <li>PLEASE CLICK "Need Help?" ON SETTINGS TO VERIFY THAT YOU FILLED IN YOUR SCHEDULE CORRECTLY</li>
-                                <li>Advisory support is being implemented!</li>
+                                <li>Advisory support has been implemented! Select Advisory as a period for ONE class.</li>
                             </ul>
                         </Col>
                     </Row>
