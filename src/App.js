@@ -27,7 +27,7 @@ function App() {
 			audience="whsremote"
 		>
 
-			<div>
+			<div className="h-100">
 				<Router>
 					<Switch>
 						<PrivateRoute path="/homework" component={HomeworkPage} />

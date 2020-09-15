@@ -29,9 +29,10 @@ export default function AllClasses(props) {
                     <Card.Body>
                         <Card.Title>{value.class}</Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">Teacher: {value.teacher}</Card.Subtitle>
-                        <Card.Text>
-                            
-                        </Card.Text>
+                        <Card.Subtitle className="mb-2 text-muted">Period: {value.period}</Card.Subtitle>
+                        {/* <Card.Text>
+                            <small className="muted">Period: {value.period}</small>
+                        </Card.Text> */}
                         <Card.Link href={value.link}>Meeting Link</Card.Link>
                     </Card.Body>
                 </Card>

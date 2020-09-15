@@ -34,6 +34,10 @@ body {
   padding-top: 20px;
 }
 
+html, body, #root {
+  height: 100%;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
 }
@@ -118,7 +122,7 @@ legend {
 .center { display: block; margin: 0 auto; }
 .col { display: flex; flex: 1 0; }
 .col.home { flex: 1 1; }
-.flex-center { justify-content: center; }
+.flex-center { align-items: center; justify-content: center; }
 
 .padding-1 { padding: 1em; }
 .padding-2 { padding: 2em; }
@@ -150,6 +154,36 @@ header {
 }
 
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+/* Login Page */
+.login-bg {
+  position: absolute;
+  z-index: -100;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url("./images/bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: cover;
+}
+
+.dark-bg {
+  position: absolute;
+  z-index: -50;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.login-card {
+  background-color: white;
+  padding: 2em 0em;
+  width: 300px;
+}
 
 /* Main */
 section {
