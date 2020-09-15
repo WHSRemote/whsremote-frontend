@@ -22,7 +22,8 @@ export default function CurrentClass(props) {
                         Advisory
                     </div>
                     <div>
-                        <Button variant="success" className="h5 m-0" size="lg" href={props.class.link}>Join Meeting</Button>
+                        <a class="btn btn-success h5 m-0 btn-lg" href={props.class.link} target="_blank">Join Meeting</a>
+                        {/* <Button variant="success" className="h5 m-0" size="lg" href={props.class.link} target="_blank">Join Meeting</Button> */}
                     </div>
                 </Card.Header>
                 <Card.Body>
@@ -77,7 +78,7 @@ export default function CurrentClass(props) {
                             Current Class: <b>{props.class.class}</b>
                         </div>
                         <div>
-                            <Button variant="success" className="h5 m-0" size="lg" href={props.class.link}>Join Meeting</Button>
+                            <a class="btn btn-success h5 m-0 btn-lg" href={props.class.link} target="_blank">Join Meeting</a>
                         </div>
                     </Card.Header>
                     <Card.Body>
