@@ -79,7 +79,9 @@ class LoginPage extends React.Component {
                     </div>
                     
                 </div> */}
-                
+                <div className="links-footer">
+                    <a href="/policies">Privacy Policy</a><span>&nbsp;&nbsp;|&nbsp;&nbsp;</span><a href="#">About</a>
+                </div>
             </div>
             </>
         );

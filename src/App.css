@@ -185,6 +185,24 @@ header {
   width: 300px;
 }
 
+.links-footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  padding: 0;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.420);
+}
+
+.links-footer * {
+  color: #aaaaaa;
+}
+
+.links-footer *:hover {
+  color: #696969;
+  text-decoration: none;
+}
+
 /* Main */
 section {
   padding: 2em;

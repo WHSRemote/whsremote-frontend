@@ -14,6 +14,7 @@ import { QuickLinksPage } from './components/quicklinks/QuickLinksPage';
 import SchedulePage from './components/schedule/SchedulePage';
 import SettingsPage from './components/settings/SettingsPage';
 import LoginPage from './components/login/LoginPage';
+import { PoliciesPage } from './components/policies/PoliciesPage';
 import PrivateRoute from './security/PrivateRoute';
 
 
@@ -42,6 +43,10 @@ function App() {
 						
 						<Route exact path="/">
 							<LoginPage />
+						</Route>
+
+						<Route path="/policies">
+							<PoliciesPage />
 						</Route>
 
 						
