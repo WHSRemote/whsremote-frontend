@@ -22,25 +22,28 @@ export class ScheduleService {
         }
 
         let classes = schedule[day]; // format of [id1, id2, id3, id4]
+        let specialDay = -1;
 
-        if(day === C.WEDNESDAY) {
-            let specialDay = 0;
-
-            // Special case: check for update, if not, follow extended advisory
-            if (Object.keys(scheduleUpdate).length > 0) {
-                // has updated days; check if today is one of them
-                for (let [date, day] of Object.entries(scheduleUpdate)) {
-                    var dateMoment = moment(date, C.DATE_FORMAT);
-                    var nowMoment = moment().format(C.DATE_FORMAT);
-                    if(dateMoment.isSame(nowMoment)) {
-                        specialDay = day;
-                        break;
-                    }
+        // Special case: check for update
+        if (Object.keys(scheduleUpdate).length > 0) {
+            // has updated days; check if today is one of them
+            for (let [date, day] of Object.entries(scheduleUpdate)) {
+                var dateMoment = moment(date, C.DATE_FORMAT);
+                var nowMoment = moment().format(C.DATE_FORMAT);
+                if(dateMoment.isSame(nowMoment)) {
+                    specialDay = day;
+                    break;
                 }
-                
-                if(specialDay > 0) classes = schedule[day];
-            } 
+            }
+            
+            // special code: no school (-100)
+            if(specialDay == C.OUT_OF_SCHOOL) return [C.OUT_OF_SCHOOL];
+            // if today is special day, pull classes for specific day
+            if(specialDay > 0) classes = schedule[specialDay];
+        } 
 
+        // If it's wednesday and NOT a special day, do an extended advisory check
+        if(day === C.WEDNESDAY && specialDay < 0) {
             // check if advisory time
             let extAdvStart = moment(C.ADVISORY_WED_START, C.TIME_FORMAT);
             let extAdvEnd = moment(C.ADVISORY_WED_END, C.TIME_FORMAT);
@@ -49,7 +52,7 @@ export class ScheduleService {
             }
         }
 
-        // if it's not a special day, and if it's not advisory, then it's out of school
+        // if it's not a special day, and not extended advisory on Wednesday, but classes are STILL null then it's out of school
         if (classes === null) return [C.OUT_OF_SCHOOL];
 
         // if we're here, then it's either a normal day or a modified Wednesday following a normal day
@@ -68,32 +71,6 @@ export class ScheduleService {
         }
 
         return [C.OUT_OF_SCHOOL];
-
-
-        // //
-        
-        // // if(day === C.MONDAY || day === C.THURSDAY) schedule = C.SCHEDULE_MON_THURS;
-        // // if(day === C.TUESDAY || day === C.FRIDAY) schedule = C.SCHEDULE_TUES_FRI;
-        // // if(day === C.WEDNESDAY) schedule = C.SCHEDULE_WED;
-
-        // APIService.getScheduleUpdate(token, (newSchedule) => {
-        //     // if update, then replace; otherwise, keep
-        //     if (newSchedule.length > 0) schedule = newSchedule[0];
-
-        //     let currentPeriod = C.OUT_OF_SCHOOL;
-        //     for (let [timerange, period] of Object.entries(schedule)) {
-        //         let periodStart = moment(timerange.split("-")[0], C.TIME_FORMAT);
-        //         let periodEnd = moment(timerange.split("-")[1], C.TIME_FORMAT);
-        //         if(moment().isBetween(periodStart, periodEnd)) {
-        //             currentPeriod = period;
-        //             break;
-        //         }
-        //     }
-
-        //     console.log("CURRENT PERIOD: " + currentPeriod);
-        //     callback(currentPeriod);
-        // }); 
-
     }
 
 

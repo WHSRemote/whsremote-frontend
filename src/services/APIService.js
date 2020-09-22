@@ -1,7 +1,7 @@
 import { toast, Slide } from "react-toastify"; 
 import 'react-toastify/dist/ReactToastify.css';
 
-// let API_URL = "https://whsremote.free.beeceptor.com";
+// let API_URL = "https://f5302dfec0dc.ngrok.io";
 let API_URL = "https://api-1599490315769.azurewebsites.net";
 // let TOAST_OPTIONS = {
 //     position: "top-right",
