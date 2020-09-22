@@ -66,10 +66,6 @@ class HomePage extends React.Component {
             // a class id
             this.setState({
                 currentClass: this.state.classes[currentClass],
-                periodDuration: {
-                    start: periodStart,
-                    end: periodEnd
-                }
             })
         } else if (typeof currentClass === "number") {
             if (currentClass == C.PERIOD_ADVISORY || currentClass == C.PERIOD_EXTADVISORY) {
@@ -81,12 +77,15 @@ class HomePage extends React.Component {
             }
             this.setState({
                 currentClass: currentClass,
-                periodDuration: {
-                    start: periodStart,
-                    end: periodEnd
-                }
             });
         }
+
+        this.setState({
+            periodDuration: {
+                start: periodStart,
+                end: periodEnd
+            }
+        });
     }
 
     render() {
