@@ -53,7 +53,7 @@ export class ScheduleService {
         }
 
         // if it's not a special day, and not extended advisory on Wednesday, but classes are STILL null then it's out of school
-        if (classes === null) return [C.OUT_OF_SCHOOL];
+        if (classes == null) return [C.OUT_OF_SCHOOL];
 
         // if we're here, then it's either a normal day or a modified Wednesday following a normal day
         for (let [timerange, value] of Object.entries(C.SCHEDULE_NORMAL)) {
