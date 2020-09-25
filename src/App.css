@@ -62,11 +62,6 @@ h1, h2, h3, h4, h5, h6, p, b, span, label, legend{
   color: #2D353F;
 }
 
-hr {
-  border: 0;
-  border-bottom: 1px solid #CCCCCC;
-}
-
 button {
   border: none;
   color: white;
@@ -108,10 +103,6 @@ legend {
   padding: 0 0.5em !important;
   width: initial !important;
 }
-
-.text-left { text-align: left !important; }
-.text-center { text-align: center !important; }
-.text-right { text-align: right !important; }
 
 .flex { display: flex; }
 .flex-row { flex-direction: row; }
