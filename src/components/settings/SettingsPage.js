@@ -72,6 +72,8 @@ class SettingsPage extends React.Component {
                         <br />
                         <br />
                         <span>Made with ☕ by Mingle Li, Class of 2021</span>
+                        <br />
+                        <a href="https://github.com/whsremote" target="_blank">Check out the code!</a>
                     </fieldset>
                 </main>  
                 <Navbar currentPage={this.state.currentPage} />

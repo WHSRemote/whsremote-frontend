@@ -15,6 +15,8 @@ import SchedulePage from './components/schedule/SchedulePage';
 import SettingsPage from './components/settings/SettingsPage';
 import LoginPage from './components/login/LoginPage';
 import { PoliciesPage } from './components/policies/PoliciesPage';
+import { AboutPage } from './components/about/AboutPage';
+import { NotFoundPage } from './components/404/NotFoundPage';
 import PrivateRoute from './security/PrivateRoute';
 
 
@@ -47,6 +49,14 @@ function App() {
 
 						<Route path="/policies">
 							<PoliciesPage />
+						</Route>
+
+						<Route path="/about">
+							<AboutPage />
+						</Route>
+
+						<Route path="*">
+							<NotFoundPage />
 						</Route>
 
 						
