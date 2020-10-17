@@ -101,7 +101,11 @@ class HomePage extends React.Component {
                             <button onClick={() => {this.props.auth0.logout({ returnTo: window.location.origin })}}>Logout</button>
                         </div>
                     </div>
-                    
+                    <div className="col">
+                        <div className="alert alert-success w-100 text-center" role="alert">
+                            Print out your schedule with new layout! Add room numbers in settings! 
+                        </div>
+                    </div>
                     <div className="col flex-col">
                         {Object.keys(this.state.classes).length > 0 ?
                             <>

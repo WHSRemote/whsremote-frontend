@@ -65,6 +65,7 @@ class ClassSettings extends React.Component {
         let modifiedList = this.state.classList;
         modifiedList[this.getUnique()] = {
             period: 1,
+            room: "",
             class: "",
             teacher: "",
             link: ""

@@ -61,7 +61,8 @@ class SchedulePage extends React.Component {
         if(classObj != null) return (
             <>
                 <p className="m-0"><b>{ classObj.class }</b></p>  
-                <small>{ classObj.teacher}</small>
+                <small>{ classObj.teacher}</small> <br/>
+                {classObj.room ? <small>{ classObj.room }</small> : <></>}
             </>
         );
         return <small>Free!</small>;
@@ -91,49 +92,51 @@ class SchedulePage extends React.Component {
 
                         <tbody>
                             <tr>
-                                <td>8:35-8:40</td>
-                                <td colSpan="2"><small>Advisory</small></td>
+                                <td className="p-0"></td>
+                                <td className="p-0"></td>
+                                <td className="p-0"></td>
                                 <td rowSpan="8"><p>Ext Advisory</p><small>10:00-10:25</small></td>
-                                <td colSpan="2"><small>Advisory</small></td>
+                                <td className="p-0"></td>
+                                <td className="p-0"></td>
                             </tr>
                             <tr>
-                                <td>8:45-10:05</td>
+                                <td>8:35-9:55</td>
                                 <td>{this.getClass(this.state.schedule[1][0])}</td>
                                 <td>{this.getClass(this.state.schedule[2][0])}</td>
                                 <td>{this.getClass(this.state.schedule[4][0])}</td>
                                 <td>{this.getClass(this.state.schedule[5][0])}</td>
                             </tr>
                             <tr>
-                                <td>10:05-10:20</td>
-                                <td colSpan="2"><small>Screen Break</small></td>
-                                <td colSpan="2"><small>Screen Break</small></td>
+                                <td>9:55-10:05</td>
+                                <td colSpan="2"><small>Transition</small></td>
+                                <td colSpan="2"><small>Transition</small></td>
                             </tr>
                             <tr>
-                                <td>10:20-11:40</td>
+                                <td>10:05-11:25</td>
                                 <td>{this.getClass(this.state.schedule[1][1])}</td>
                                 <td>{this.getClass(this.state.schedule[2][1])}</td>
                                 <td>{this.getClass(this.state.schedule[4][1])}</td>
                                 <td>{this.getClass(this.state.schedule[5][1])}</td>
                             </tr>
                             <tr>
-                                <td>11:40-12:10</td>
-                                <td colSpan="2"><small>Lunch</small></td>
-                                <td colSpan="2"><small>Lunch</small></td>
+                                <td>11:25-11:35</td>
+                                <td colSpan="2"><small>Transition</small></td>
+                                <td colSpan="2"><small>Transition</small></td>
                             </tr>
                             <tr>
-                                <td>12:10-1:30</td>
-                                <td>{this.getClass(this.state.schedule[1][2])}</td>
-                                <td>{this.getClass(this.state.schedule[2][2])}</td>
-                                <td>{this.getClass(this.state.schedule[4][2])}</td>
-                                <td>{this.getClass(this.state.schedule[5][2])}</td>
+                                <td>11:35-1:40</td>
+                                <td><Lunch1/>{this.getClass(this.state.schedule[1][2])}<Lunch2/></td>
+                                <td><Lunch1/>{this.getClass(this.state.schedule[2][2])}<Lunch2/></td>
+                                <td><Lunch1/>{this.getClass(this.state.schedule[4][2])}<Lunch2/></td>
+                                <td><Lunch1/>{this.getClass(this.state.schedule[5][2])}<Lunch2/></td>
                             </tr>
                             <tr>
-                                <td>1:30-1:45</td>
-                                <td colSpan="2"><small>Screen Break</small></td>
-                                <td colSpan="2"><small>Screen Break</small></td>
+                                <td>1:40-1:50</td>
+                                <td colSpan="2"><small>Transition</small></td>
+                                <td colSpan="2"><small>Transition</small></td>
                             </tr>
                             <tr>
-                                <td>1:45-3:05</td>
+                                <td>1:50-3:10</td>
                                 <td>{this.getClass(this.state.schedule[1][3])}</td>
                                 <td>{this.getClass(this.state.schedule[2][3])}</td>
                                 <td>{this.getClass(this.state.schedule[4][3])}</td>
@@ -148,6 +151,24 @@ class SchedulePage extends React.Component {
         );
     }
 
+}
+
+function Lunch1() {
+    return (
+        <>
+            <small>Lunch 1: 11:35-12:05</small>
+            <hr className="m-1"/>
+        </>
+    );
+}
+
+function Lunch2() {
+    return (
+        <>
+            <hr className="m-1"/>
+            <small>Lunch 2: 1:10-1:40</small>
+        </>
+    );
 }
 
 export default withAuth0(SchedulePage);

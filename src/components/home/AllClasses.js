@@ -30,6 +30,7 @@ export default function AllClasses(props) {
                         <Card.Title>{value.class}</Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">Teacher: {value.teacher}</Card.Subtitle>
                         <Card.Subtitle className="mb-2 text-muted">Period: {value.period}</Card.Subtitle>
+                        <Card.Subtitle className="mb-2 text-muted">Room: {value.room ? value.room : "N/A"}</Card.Subtitle>
                         {/* <Card.Text>
                             <small className="muted">Period: {value.period}</small>
                         </Card.Text> */}

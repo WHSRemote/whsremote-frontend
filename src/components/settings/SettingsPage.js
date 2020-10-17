@@ -56,7 +56,8 @@ class SettingsPage extends React.Component {
                     <br />
                     <fieldset>
                         <legend>Classes</legend>
-                        <p>Advisory support now added! Add a class and set its period to "Advisory".</p>
+                        <a href="https://www.youtube.com/watch?v=Z26rLaaMdQ8&list=PL5Y2tGfke7b720jp0GcGiOTQhT_SCItpA&index=3" target="_blank">Where can I find room numbers?</a>
+                        {/* <p>Advisory support now added! Add a class and set its period to "Advisory".</p> */}
                         {/* <small className="text-muted">It is highly advisable you complete all the fields all at once. As of now, fields will not save after you refresh.</small> */}
                         <ClassSettings classSettings={this.state.currentClasses} />
                     </fieldset>

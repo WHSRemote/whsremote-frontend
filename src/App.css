@@ -273,11 +273,15 @@ main {
 
 /* Schedule Page */
 table.schedule-table {
-  border: 5px #dee2e6 solid !important;
+  border: 5px #CCC solid !important;
 }
 
 table.schedule-table td {
   vertical-align: middle;
+}
+
+.table-bordered td, .table-bordered th {
+  border: 2px solid #CCC !important;
 }
 
 @page {
@@ -298,7 +302,7 @@ table.schedule-table td {
   .section-to-print {
     position: absolute;
     left: 0;
-    top: 20%;
+    top: 10%;
   }
 }
 

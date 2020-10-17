@@ -21,7 +21,12 @@ export default function ClassConfig(props) {
                     </Form.Control>
                 </Form.Group>
 
-                <Form.Group as={Col} xs={12} sm={3} className="d-block">
+                <Form.Group as={Col} xs={12} sm={1} className="d-block">
+                    <Form.Label>Room #</Form.Label>
+                    <Form.Control type="text" placeholder="Room #" name={"period" + props.period + "-room"} defaultValue={props.classSettings != null ? props.classSettings.room : ""} onChange={(event) => { props.changeClassData(props.id, "room", event.target.value) }} />
+                </Form.Group>
+
+                <Form.Group as={Col} xs={12} sm={2} className="d-block">
                     <Form.Label>Class</Form.Label>
                     <Form.Control type="text" placeholder="Class name" name={"period" + props.period + "-class"} defaultValue={props.classSettings != null ? props.classSettings.class : ""} onChange={(event) => { props.changeClassData(props.id, "class", event.target.value) }} />
                 </Form.Group>

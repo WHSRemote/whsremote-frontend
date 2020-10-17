@@ -69,10 +69,10 @@ export class QuickLinksPage extends React.Component {
                             </Card>
                         </Col>
                         <Col className="mb-3" xs={6} sm={4} md={2}>
-                            <Card className="quick-link border-0" onClick={() => {this.openLink("https://docs.google.com/document/d/12BZtc76pvMRpFx3D1KRygsNWdZ819EGvzstBocm7__w/")}}>
+                            <Card className="quick-link border-0" onClick={() => {this.openLink("https://docs.google.com/document/d/1pOcV5tdRxvjczc66fsoxrfXWMvEdcCspkgBAc1Vspc8")}}>
                                 <Card.Img variant="top" src="https://cdn.imgbin.com/3/14/15/imgbin-google-docs-doc-s-YXrPzx5LvF1FkUvUcNL2cSbgz.jpg" />
                                 <Card.Body className="text-center">
-                                    <span>Phase 1 Plan</span>
+                                    <span>Phase 2 Plan</span>
                                 </Card.Body>
                             </Card>
                         </Col>
