@@ -53,6 +53,32 @@ export class QuickLinksPage extends React.Component {
                             </Card>
                         </Col>
                         <Col className="mb-3" xs={6} sm={4} md={2}>
+                            <Card className="quick-link border-0" onClick={() => {this.openLink("https://docs.google.com/forms/d/e/1FAIpQLSd92KAP0xtEmPgVye_v4Q_5u_yyow-cKCBRdkFQo84GKa9OPw/viewform")}}>
+                                <Card.Img variant="top" src="https://cdn.zapier.com/storage/services/2554f3f9544cf8375a46f68b18de0e7d.png" />
+                                <Card.Body className="text-center">
+                                    <span>Lunch Order Form</span>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                        <Col className="mb-3" xs={6} sm={4} md={2}>
+                            <Card className="quick-link border-0"  onClick={() => {this.openLink("https://docs.google.com/document/d/1qpmy1Gp6tY5P8dMe64B_tHweEP-woB5-Ib5VbQPBKPo/edit")}}>
+                                <Card.Img variant="top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Closed_Book_Icon.svg/400px-Closed_Book_Icon.svg.png" />
+                                <Card.Body className="text-center">
+                                    <span>Library Reservation</span>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                        <Col className="mb-3" xs={6} sm={4} md={2}>
+                            <Card className="quick-link border-0" onClick={() => {this.openLink("https://docs.google.com/spreadsheets/d/1Md5WSMwb3n2f5nqw1HG7Bx4EfJ2xpQxIEtgrDoxhPM8/edit")}}>
+                                <Card.Img variant="top" src="https://image.flaticon.com/icons/png/512/126/126790.png" />
+                                <Card.Body className="text-center">
+                                    <span>Blank Schedule</span>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col className="mb-3" xs={6} sm={4} md={2}>
                             <Card className="quick-link border-0" onClick={() => {this.openLink("https://student.naviance.com/waylandhs")}}>
                                 <Card.Img variant="top" src="https://b8w9e5v9.rocketcdn.me/wp-content/uploads/2019/12/Naviance-Logo-300x300.png" />
                                 <Card.Body className="text-center">

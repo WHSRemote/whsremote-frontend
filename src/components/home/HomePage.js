@@ -101,9 +101,16 @@ class HomePage extends React.Component {
                             <button onClick={() => {this.props.auth0.logout({ returnTo: window.location.origin })}}>Logout</button>
                         </div>
                     </div>
-                    <div className="col">
-                        <div className="alert alert-success w-100 text-center" role="alert">
-                            Print out your schedule with new layout! Add room numbers in settings! 
+                    <div className="row p-0">
+                        <div className="col">
+                            <div className="alert alert-success w-100 text-center" role="alert">
+                                Print out your schedule with new layout! Add room numbers in settings! 
+                            </div>
+                        </div>
+                        <div className="col">
+                            <div className="alert alert-info w-100 text-center" role="alert">
+                                I added new quick links like lunch order form, library sign up, and more. Check it out!
+                            </div>
                         </div>
                     </div>
                     <div className="col flex-col">
