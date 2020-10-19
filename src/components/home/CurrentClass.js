@@ -30,7 +30,9 @@ export default function CurrentClass(props) {
                     <Card.Text>
                     {
                         props.class.teacher != null ? (
-                            <>Teacher: {props.class.teacher}</>
+                            <>
+                                Teacher: {props.class.teacher}
+                            </>
                         ) : (
                             <><p>Add your Advisory class in Settings -> Classes and choose Advisory as the period!</p></>
                         )
@@ -83,7 +85,8 @@ export default function CurrentClass(props) {
                     </Card.Header>
                     <Card.Body>
                         <Card.Text>
-                        Teacher: {props.class.teacher}
+                        <p>Teacher: {props.class.teacher}</p>
+                        <span>Room: {props.class.room}</span>
                         </Card.Text>
                     </Card.Body>
                     </>
