@@ -108,8 +108,8 @@ class HomePage extends React.Component {
                             </div>
                         </div> */}
                         <div className="col">
-                            <div className="alert alert-info w-100 text-center" role="alert">
-                                Sorry for not getting the homework tab done; I'm too addicted to Rocket League. Will get it done by the end of November.
+                            <div className="alert alert-success w-100 text-center" role="alert">
+                                Homework page is done (one day late)!
                             </div>
                         </div>
                     </div>
