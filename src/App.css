@@ -247,6 +247,37 @@ main {
       
   }
 
+  table.assignment-table{
+    width: 100%;
+  }
+
+  table.assignment-table tr {
+    border: 1px solid #ccc;
+  }
+
+  table.assignment-table td {
+    padding: 2px;
+  }
+
+  td.cell-actions {
+    width: 30px;
+    border: 0 !important;
+  }
+
+  td.cell-done {
+    width: 30px;
+    text-align: center;
+  }
+
+  input.checkbox-done {
+    transform: scale(1.5);
+  }
+
+  .assignment.done {
+    color: #AAAAAA;
+    text-decoration: line-through;
+  }
+
 /* QuickLinks Page */
 .quick-link:hover {
   cursor: pointer;

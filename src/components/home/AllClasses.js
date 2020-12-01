@@ -19,7 +19,7 @@ export default function AllClasses(props) {
         'info',
         'dark',
     ];
-    
+    //This is a comment that is awesome because it is made by your girlfriend who is awesome and this code makes peole ANGERY >:(
     let classCards = [];
     Object.entries(props.classes).forEach(([key, value], index) => {
         

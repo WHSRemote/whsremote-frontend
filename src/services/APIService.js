@@ -1,7 +1,7 @@
 import { toast, Slide } from "react-toastify"; 
 import 'react-toastify/dist/ReactToastify.css';
 
-// let API_URL = "https://f5302dfec0dc.ngrok.io";
+// let API_URL = "https://ecce11b0643a.ngrok.io";
 let API_URL = "https://api-1599490315769.azurewebsites.net";
 // let TOAST_OPTIONS = {
 //     position: "top-right",
@@ -107,7 +107,45 @@ class APIService {
                 }
             });
         })();
-    }    
+    }
+    
+    static getHomework(token, user_id, callback) {
+        (async () => {
+            fetch(API_URL + "/homework?id=" + encodeURI(user_id), {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+            }).then(response => {
+                if(response.ok) {
+                    response.json().then(json => {
+                        callback(json);
+                    });    
+                } else {
+                    toast.error("Something went wrong when retrieving homework data.");
+                }
+            });
+        })();
+    }
+
+    static postHomework(token, data, callback) {
+        (async () => {
+            fetch(API_URL + "/homework", {
+                method: 'post',
+                body: JSON.stringify(data),
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                }
+            }).then(function(response) {
+                if(response.ok) {
+                    toast.success("Homework assignment saved!");
+                    callback();
+                } else {
+                    toast.error("Something went wrong when saving homework data.");
+                }
+            });
+        })();
+    }
 }
 
 export { APIService };
