@@ -1,4 +1,5 @@
 import React from "react";
+import AdSense from 'react-adsense';
 import Navbar  from "../navbar/Navbar";
 import CurrentClass from "./CurrentClass";
 import AllClasses from "./AllClasses";
@@ -93,6 +94,10 @@ class HomePage extends React.Component {
             <>
                 {this.state.loading ? <Loading /> : <></>}
                 <main>
+                    <AdSense.Google
+                        client='ca-pub-9570422466887989'
+                        slot='7453911989'
+                    />
                     <div className="col mb-3">
                         <div className="flex-1">
                             <h2>Hello, <b>{this.props.auth0.user.nickname}</b>!</h2>
@@ -102,16 +107,16 @@ class HomePage extends React.Component {
                         </div>
                     </div>
                     <div className="row p-0">
-                        {/* <div className="col">
-                            <div className="alert alert-success w-100 text-center" role="alert">
-                                Print out your schedule with new layout! Add room numbers in settings! 
-                            </div>
-                        </div> */}
                         <div className="col">
+                            <div className="alert alert-info w-100 text-center" role="alert">
+                                I'm going to be running ads on this page to further fund WHSRemote – please support me by disabling any adblock extensions you have! Thank you so much!
+                            </div>
+                        </div>
+                        {/* <div className="col">
                             <div className="alert alert-success w-100 text-center" role="alert">
                                 Homework page is done (one day late)!
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="col flex-col">
                         {Object.keys(this.state.classes).length > 0 ?

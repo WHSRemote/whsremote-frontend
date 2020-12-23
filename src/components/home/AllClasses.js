@@ -34,7 +34,7 @@ export default function AllClasses(props) {
                         {/* <Card.Text>
                             <small className="muted">Period: {value.period}</small>
                         </Card.Text> */}
-                        <a class="card-link" href={value.link} target="_blank">Meeting Link</a>
+                        <a className="card-link" href={value.link} target="_blank">Meeting Link</a>
                         {/* <Card.Link href={value.link} >Meeting Link</Card.Link> */}
                     </Card.Body>
                 </Card>
