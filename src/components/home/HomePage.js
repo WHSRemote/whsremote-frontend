@@ -1,5 +1,5 @@
 import React from "react";
-import AdSense from 'react-adsense';
+import {Helmet} from "react-helmet";
 import Navbar  from "../navbar/Navbar";
 import CurrentClass from "./CurrentClass";
 import AllClasses from "./AllClasses";
@@ -94,10 +94,9 @@ class HomePage extends React.Component {
             <>
                 {this.state.loading ? <Loading /> : <></>}
                 <main>
-                    <AdSense.Google
-                        client='ca-pub-9570422466887989'
-                        slot='7453911989'
-                    />
+                    <Helmet>
+                        <script data-ad-client="ca-pub-9570422466887989" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    </Helmet>
                     <div className="col mb-3">
                         <div className="flex-1">
                             <h2>Hello, <b>{this.props.auth0.user.nickname}</b>!</h2>
