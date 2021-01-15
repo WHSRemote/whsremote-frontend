@@ -95,7 +95,7 @@ class HomePage extends React.Component {
             <>
                 {this.state.loading ? <Loading /> : <></>}
                 <main>
-                    <Helmet>
+                    {/* <Helmet>
                         <script data-ad-client="ca-pub-9570422466887989" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                             
                     </Helmet>
@@ -105,7 +105,7 @@ class HomePage extends React.Component {
                         style={{ display: 'block' }}
                         format='auto'
                         responsive='true'
-                    />
+                    /> */}
                     <div className="col mb-3">
                         <div className="flex-1">
                             <h2>Hello, <b>{this.props.auth0.user.nickname}</b>!</h2>
@@ -117,7 +117,7 @@ class HomePage extends React.Component {
                     <div className="row p-0">
                         <div className="col">
                             <div className="alert alert-info w-100 text-center" role="alert">
-                                I'm going to be running ads on this page to further fund WHSRemote – please support me by disabling any adblock extensions you have! Thank you so much!
+                                Never mind – no ads. Got enough donations. Thank you all!
                             </div>
                         </div>
                         {/* <div className="col">
