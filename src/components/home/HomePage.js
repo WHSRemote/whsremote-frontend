@@ -4,6 +4,7 @@ import AdSense from 'react-adsense';
 import Navbar  from "../navbar/Navbar";
 import CurrentClass from "./CurrentClass";
 import AllClasses from "./AllClasses";
+import LunchMenu from "./LunchMenu";
 import { Loading } from "../loading/Loading";
 import { withAuth0 } from "@auth0/auth0-react";
 import { Row, Col } from "react-bootstrap"; 
@@ -114,22 +115,21 @@ class HomePage extends React.Component {
                             <button onClick={() => {this.props.auth0.logout({ returnTo: window.location.origin })}}>Logout</button>
                         </div>
                     </div>
-                    <div className="row p-0">
-                        <div className="col">
-                            <div className="alert alert-info w-100 text-center" role="alert">
-                                Never mind – no ads. Got enough donations. Thank you all!
-                            </div>
+
+                    <Col xs={12}>
+                        <div className="alert alert-success w-100 text-center" role="alert">
+                            Check out the new Lunch Menu feature!
                         </div>
-                        {/* <div className="col">
-                            <div className="alert alert-success w-100 text-center" role="alert">
-                                Homework page is done (one day late)!
-                            </div>
-                        </div> */}
-                    </div>
+                    </Col>
+                    
                     <div className="col flex-col">
                         {Object.keys(this.state.classes).length > 0 ?
                             <>
-                                <CurrentClass class={this.state.currentClass} periodDuration={this.state.periodDuration}/>
+                                <Row>
+                                    <Col xs={12} sm={8} className="flex-col"><CurrentClass class={this.state.currentClass} periodDuration={this.state.periodDuration}/></Col>
+                                    <Col xs={12} sm={4} className=""><LunchMenu/></Col>
+                                </Row>
+                                
                                 <hr/>
                                 <Row>
                                     <AllClasses classes={this.state.classes}/>

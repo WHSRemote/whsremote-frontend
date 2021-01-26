@@ -146,6 +146,20 @@ class APIService {
             });
         })();
     }
+
+    static getLunchMenu(callback) {
+        (async () => {
+            fetch("https://whslunch.herokuapp.com").then(response => {
+                if(response.ok) {
+                    response.json().then(json => {
+                        callback(json);
+                    });
+                } else {
+                    toast.error("Something went wrong when retrieving lunch menu data.");
+                }
+            });
+        })();
+    }
 }
 
 export { APIService };

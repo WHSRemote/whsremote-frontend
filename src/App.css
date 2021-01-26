@@ -146,6 +146,12 @@ header {
 
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
+.loading-gif {
+  width: 4em;
+  display: block;
+  margin: 0 auto;
+}
+
 /* Login Page */
 .login-bg {
   position: absolute;
