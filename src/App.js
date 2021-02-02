@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Auth0Provider } from "@auth0/auth0-react";
 import HomePage from './components/home/HomePage';
 import HomeworkPage from './components/homework/HomeworkPage';
-import { QuickLinksPage } from './components/quicklinks/QuickLinksPage';
+import QuickLinksPage from './components/quicklinks/QuickLinksPage';
 import SchedulePage from './components/schedule/SchedulePage';
 import SettingsPage from './components/settings/SettingsPage';
 import LoginPage from './components/login/LoginPage';

@@ -147,6 +147,44 @@ class APIService {
         })();
     }
 
+    static getQuickLinks(token, user_id, callback) {
+        (async () => {
+            fetch(API_URL + "/quicklinks?id=" + encodeURI(user_id), {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+            }).then(response => {
+                if(response.ok) {
+                    response.json().then(json => {
+                        callback(json);
+                    });    
+                } else {
+                    toast.error("Something went wrong when retrieving quick links.");
+                }
+            });
+        })();
+    }
+
+    static postQuickLinks(token, data, callback) {
+        (async () => {
+            fetch(API_URL + "/quicklinks", {
+                method: 'post',
+                body: JSON.stringify(data),
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                }
+            }).then(function(response) {
+                if(response.ok) {
+                    toast.success("Quick links saved!");
+                    callback();
+                } else {
+                    toast.error("Something went wrong when saving quick links.");
+                }
+            });
+        })();
+    }
+
     static getLunchMenu(callback) {
         (async () => {
             fetch("https://whslunch.herokuapp.com").then(response => {
