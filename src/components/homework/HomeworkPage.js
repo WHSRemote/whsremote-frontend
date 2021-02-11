@@ -4,6 +4,7 @@ import HomeworkAssignments from "./HomeworkAssignments";
 import { Loading } from "../loading/Loading";
 import { withAuth0 } from "@auth0/auth0-react";
 import { APIService } from '../../services/APIService';
+import C from "../../constants/Constants";
 
 class HomeworkPage extends React.Component {
     constructor(props) {
@@ -75,14 +76,14 @@ class HomeworkPage extends React.Component {
         let existingClass = hwCopy[this.state.selectedClass];
         if(existingClass != null) {
             // Append assignment obj to class arr
-            existingClass[this.getUnique()] = {
+            existingClass[C.getUnique()] = {
                 desc: this.state.assignmentText,
                 done: false
             };
             hwCopy[this.state.selectedClass] = existingClass;
         } else {
             // Create new array with obj to class
-            let id = this.getUnique();
+            let id = C.getUnique();
             hwCopy[this.state.selectedClass] = {
                 [id]: {
                     desc: this.state.assignmentText,
@@ -176,10 +177,6 @@ class HomeworkPage extends React.Component {
                 <Navbar currentPage={this.state.currentPage} />
             </>
         );
-    }
-
-    getUnique() {
-        return Math.random().toString(36).substr(2, 9);
     }
 
 }

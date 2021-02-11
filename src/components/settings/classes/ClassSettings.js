@@ -4,6 +4,7 @@ import { withAuth0 } from "@auth0/auth0-react";
 import ClassConfig from "./ClassConfig";
 import { APIService } from "../../../services/APIService";
 import { Loading } from "../../loading/Loading";
+import C from "../../../constants/Constants";
 
 class ClassSettings extends React.Component {
 
@@ -63,7 +64,7 @@ class ClassSettings extends React.Component {
 
     appendClass() {
         let modifiedList = this.state.classList;
-        modifiedList[this.getUnique()] = {
+        modifiedList[C.getUnique()] = {
             period: 1,
             room: "",
             class: "",
@@ -103,10 +104,6 @@ class ClassSettings extends React.Component {
             </Form>
             </>
         );
-    }
-
-    getUnique() {
-        return Math.random().toString(36).substr(2, 9);
     }
 }
 

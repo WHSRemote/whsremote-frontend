@@ -135,10 +135,6 @@ class ScheduleSettings extends React.Component {
             </>
         );
     }
-
-    getUnique() {
-        return Math.random().toString(36).substr(2, 9);
-    }
 }
 
 export default withAuth0(ScheduleSettings);

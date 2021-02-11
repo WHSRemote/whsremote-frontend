@@ -39,4 +39,8 @@ export default class Constants {
 
     static ADVISORY_WED_START = "10:00";
     static ADVISORY_WED_END = "10:25";
+
+    static getUnique() {
+        return Math.random().toString(36).substr(2, 9);
+    }
 }
