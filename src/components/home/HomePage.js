@@ -117,8 +117,8 @@ class HomePage extends React.Component {
                     </div>
 
                     <Col xs={12}>
-                        <div className="alert alert-success w-100 text-center" role="alert">
-                            Check out the new Lunch Menu feature!
+                        <div className="alert alert-info w-100 text-center" role="alert">
+                            Go add your own custom Quick Links!
                         </div>
                     </Col>
                     
