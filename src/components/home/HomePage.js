@@ -117,16 +117,19 @@ class HomePage extends React.Component {
                     </div>
 
                     <Col xs={12}>
-                        <div className="alert alert-danger w-100 text-center" role="alert">
-                            3/30: I'm sorry! I screwed up accidentally. It'll be fixed at 12:30pm.
+                        <div className="alert alert-info w-100 text-center" role="alert">
+                            Assassins: I already backed up the database, so if you're trying to remove your schedule, nice try.
                         </div>
                     </Col>
-                    
+                    {/* OUTRAGEOUS!!!! You're wrong. */}
                     <div className="col flex-col">
                         {Object.keys(this.state.classes).length > 0 ?
                             <>
                                 <Row>
-                                    <Col xs={12} sm={8} className="flex-col"><CurrentClass class={this.state.currentClass} periodDuration={this.state.periodDuration}/></Col>
+                                    {/* <Col xs={12} sm={8} className="flex-col"><CurrentClass class={this.state.currentClass} periodDuration={this.state.periodDuration}/></Col> */}
+                                    <Col xs={12} sm={8} className="flex-col">
+                                        <img className="w-100" src="https://i.imgur.com/7cItk8r.png"/>
+                                    </Col>
                                     <Col xs={12} sm={4} className=""><LunchMenu/></Col>
                                 </Row>
                                 
